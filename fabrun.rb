@@ -18,16 +18,14 @@ class Fabrun < Formula
     sha256 "fa039e2d3af5d56d2a0cb140b49872e67a91b1c249286dff0000e264bdc9598b"
   end
 
-  on_windows do
-    url "https://github.com/HTA86/fabrun/releases/download/0.5.0/fabrun-windows-amd64.exe"
-    sha256 "2baa761dfd1567a5983daef12e64a067750cdea6f549ffd6b9ff29c4b1962fc8"
-  end
-
   def install
-    bin.install "fabrun-darwin-arm64" => "fabrun" if OS.mac? && Hardware::CPU.arm?
-    bin.install "fabrun-darwin-amd64" => "fabrun" if OS.mac? && Hardware::CPU.intel?
-    bin.install "fabrun-linux-amd64" => "fabrun" if OS.linux?
-    bin.install "fabrun-windows-amd64.exe" => "fabrun" if OS.windows?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "fabrun-darwin-arm64" => "fabrun"
+    elsif OS.mac? && Hardware::CPU.intel?
+      bin.install "fabrun-darwin-amd64" => "fabrun"
+    elsif OS.linux?
+      bin.install "fabrun-linux-amd64" => "fabrun"
+    end
   end
 
   test do
