@@ -2,7 +2,7 @@
 
 1. Add the tap:
 ```sh
-brew tap yourusername/fabrun
+brew tap HTA86/fabrun
 ```
 
 2.	Install FabRun:
@@ -13,4 +13,9 @@ brew install fabrun
 3.	Verify installation:
 ```sh
 fabrun --version
+```
+
+### Update the tap
+```sh
+brew update
 ```
